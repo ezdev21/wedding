@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const images = [
   "photo_2026-02-08_14-21-47.jpg",
@@ -9,16 +9,45 @@ const images = [
 
 export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+  const [isInView, setIsInView] = useState(false);
+  const galleryRef = useRef(null);
+
+  // Observe when the gallery enters the viewport
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.3 } // Adjust threshold if needed
+    );
+
+    if (galleryRef.current) {
+      observer.observe(galleryRef.current);
+    }
+
+    return () => {
+      if (galleryRef.current) observer.unobserve(galleryRef.current);
+    };
+  }, []);
+
+  // Start slideshow only when in view
+  useEffect(() => {
+    if (!isInView) return;
+
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [isInView]);
 
   return (
-    <div className="relative mx-auto w-full max-w-5xl overflow-hidden">
+    <div
+      ref={galleryRef}
+      className="relative mx-auto w-full max-w-5xl overflow-hidden"
+    >
       {/* Images */}
       <div className="relative h-[420px] md:h-[520px]">
         {images.map((src, index) => (
@@ -46,9 +75,7 @@ export default function Gallery() {
               "h-4 w-4 rounded-full",
               "outline-none focus:outline-none focus:ring-0 focus:ring-offset-0",
               "transition-transform duration-300",
-              index === activeIndex
-                ? "bg-[#964d0a] scale-110"
-                : "bg-white",
+              index === activeIndex ? "bg-[#964d0a] scale-110" : "bg-white",
             ].join(" ")}
           />
         ))}
