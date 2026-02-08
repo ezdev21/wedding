@@ -1,18 +1,17 @@
 import { useState, type FormEvent } from "react";
 import Container from "./Container";
 import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 export default function JoinUs() {
   const [name, setName] = useState("");
   const [attend, setAttend] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
 
    const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setSuccess(null);
     try {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -24,13 +23,19 @@ export default function JoinUs() {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
-      setSuccess("Message sent successfully ✅");
       setName("");
       setMessage("");
-      window.location.reload();
+      setAttend("");
+      toast.success("Message sent successfully!",{
+        position: "bottom-right",
+        richColors: true
+      });
     } catch (error: unknown) {
       console.error("Error sending email:", error);
-      setSuccess("Something went wrong. Please try again ❌");
+      toast.error("Something went wrong. Please try again ❌",{
+        position: "bottom-right",
+        richColors: true
+      });
     } finally {
       setLoading(false);
     }
@@ -44,7 +49,7 @@ export default function JoinUs() {
             JOIN US
           </h2>
 
-          <form onSubmit={(e) => handleSubmit(e)} className="space-y-8 text-left">
+          <form onSubmit={handleSubmit} className="space-y-8 text-left">
             {/* Name */}
             <div>
               <label className="mb-2 block font-serif uppercase tracking-wide">
@@ -52,6 +57,7 @@ export default function JoinUs() {
               </label>
               <input
                 type="text"
+                required
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter Your Full Name"
                 className="w-full rounded-md bg-white px-4 py-3 text-gray-700 outline-none focus:ring-2 focus:ring-[#F5E6C8]"
@@ -94,6 +100,7 @@ export default function JoinUs() {
               </label>
               <textarea
                 rows={6}
+                required
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Message for newlyweds couples"
                 className="w-full resize-none rounded-md bg-white px-4 py-3 text-gray-700 outline-none focus:ring-2 focus:ring-[#F5E6C8]"
@@ -110,9 +117,7 @@ export default function JoinUs() {
               </button>
             </div>
             <div>
-              {success && (
-                <p className="text-green-500 mt-2 font-medium">{success}</p>
-              )}
+
             </div>
           </form>
         </div>

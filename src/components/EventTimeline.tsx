@@ -42,14 +42,14 @@ export default function EventTimeline() {
           {events.map(({ time, title, icon: Icon }) => (
             <div
               key={time}
-              className="flex min-w-[260px] items-start gap-5"
+              className="flex min-w-[260px] items-center gap-5"
             >
               {/* Icon */}
               <Icon className="h-6 w-6 shrink-0" />
 
               {/* Text block */}
               <div className="flex flex-col gap-2 shrink-0">
-                <span className="text-base font-semibold tracking-wide">
+                <span className="text-lg font-bold tracking-wide text-black">
                   {time}
                 </span>
                 <span className="whitespace-nowrap text-sm tracking-wide">

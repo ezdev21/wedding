@@ -5,8 +5,8 @@ export default function Footer() {
       <h1 className="text-2xl font-serif">SEE YOU THERE !!!</h1>
       <p className="mt-2">
         Developed by{" "}
-        <a href="https://yeneserg.com" className="text-white">
-          yeneserg.com
+        <a target="_blank" href="https://t.me/radiance_technology" className="text-white">
+          Radiance Technology
         </a>
       </p>
     </footer>

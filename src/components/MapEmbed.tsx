@@ -1,3 +1,5 @@
+import { Maximize, Share2 } from "lucide-react";
+
 export default function MapEmbed() {
   // Base Google Maps links
   const wedajinetPark =
@@ -23,10 +25,10 @@ export default function MapEmbed() {
               href={wedajinetPark}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 hover:bg-white/30"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 hover:bg-white/30"
               title="Open in Google Maps"
             >
-              ⓘ
+              <img src="photo_2026-02-08_14-21-57-small.jpg" className="rounded-full" />
             </a>
 
             <div>
@@ -38,7 +40,7 @@ export default function MapEmbed() {
           </div>
 
           {/* Right icons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-5">
             {/* Share */}
             <a
               href={wedajinetPark}
@@ -47,7 +49,7 @@ export default function MapEmbed() {
               title="Share on Google Maps"
               className="hover:opacity-80"
             >
-              🔗
+              <Share2 className="h-8 w-8 text-white" />
             </a>
 
             {/* Fullscreen / Zoom */}
@@ -58,7 +60,7 @@ export default function MapEmbed() {
               title="View fullscreen"
               className="hover:opacity-80"
             >
-              ⛶
+              <Maximize className="h-8 w-8 text-white" />
             </a>
           </div>
         </div>

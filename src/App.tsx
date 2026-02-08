@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Countdown from "./components/Countdown";
 import JoinUs from "./components/JoinUs";
 import Gallery from "./components/Gallery";
+import { Toaster } from "sonner";
 
 function App() {
   return(
@@ -26,6 +27,7 @@ function App() {
       <Gallery />
       <Footer />
     </div>
+    <Toaster />
     </div>
   )
 }

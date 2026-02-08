@@ -23,14 +23,14 @@ export default function Invitation() {
         </p>
 
         <p className="mb-4 text-base leading-relaxed">
-          The wedding will take place on <strong>Saturday, February 18, 2025</strong>.
+          The wedding will take place on <strong>Saturday, February 14, 2025</strong>.
           Lunch will be served earlier in the day at our home.
         </p>
 
         <p className="mb-6 text-base leading-relaxed">
           The wedding ceremony will be held at
           <br />
-          <strong>9:00 PM at Kotebe MKC</strong>
+          <strong>1:00 PM at Wedajinet Park</strong>
         </p>
 
         <p className="font-semibold">

@@ -13,7 +13,7 @@ export default function SharePictures() {
         </p>
 
         <a
-            href="/"
+            href="https://t.me/mikezaer"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 rounded-md bg-[#a65a00] py-2 px-5 text-center text-sm font-medium text-white hover:text-white hover:opacity-90"

@@ -70,7 +70,7 @@ export default function Countdown({
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-white">
-        <h2 className="mb-10 text-3xl md:text-4xl tracking-[0.35em] font-serif text-[#f5e6b8]">
+        <h2 className="mb-10 text-3xl md:text-4xl tracking-[0.35em] font-serif text-[#e6d296]">
           COUNT DOWN
         </h2>
 

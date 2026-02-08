@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const images = [
   "photo_2026-02-08_14-21-47.jpg",
@@ -9,6 +9,13 @@ const images = [
 
 export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState(0);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative mx-auto w-full max-w-5xl overflow-hidden">
@@ -19,8 +26,8 @@ export default function Gallery() {
             key={index}
             src={src}
             alt={`Wedding gallery image ${index + 1}`}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
-              index === activeIndex ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
+              index === activeIndex ? "opacity-100 scale-100" : "opacity-0"
             }`}
           />
         ))}
