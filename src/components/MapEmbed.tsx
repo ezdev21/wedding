@@ -25,7 +25,7 @@ export default function MapEmbed() {
               href={wedajinetPark}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 hover:bg-white/30"
+              className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 hover:bg-white/30"
               title="Open in Google Maps"
             >
               <img src="photo_2026-02-08_14-21-57-small.jpg" className="rounded-full" />
