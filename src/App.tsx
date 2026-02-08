@@ -14,14 +14,14 @@ import { Toaster } from "sonner";
 function App() {
   return(
     <div className="w-full flex justify-center">
-    <div className="lg:w-1/2 p-3">
+    <div className="lg:w-1/2 p-3 overflow-hidden">
       <HeroImage />
       <Invitation />
       <SecondaryImage />
       <ImageAccordion />
       <EventTimeline />
       <MapEmbed />
-      <Countdown targetDate="2026-02-14T17:00:00" />
+      <Countdown targetDate="2026-02-14T13:00:00" />
       <JoinUs />
       <SharePictures />
       <Gallery />

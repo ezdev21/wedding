@@ -38,14 +38,14 @@ export default function EventTimeline() {
           EVENT TIMELINE
         </h2>
 
-        <div className="grid gap-y-12 gap-x-20 sm:grid-cols-2">
+        <div className="grid gap-y-6 md:gap-y-12 gap-x-20 sm:grid-cols-2 place-content-center">
           {events.map(({ time, title, icon: Icon }) => (
             <div
               key={time}
               className="flex min-w-[260px] items-center gap-5"
             >
               {/* Icon */}
-              <Icon className="h-6 w-6 shrink-0" />
+              <Icon className="h-8 w-8 shrink-0" />
 
               {/* Text block */}
               <div className="flex flex-col gap-2 shrink-0">

@@ -42,7 +42,7 @@ export default function JoinUs() {
   };
 
   return (
-    <section className="bg-[#8B4A05] py-16">
+    <section className="bg-[#8B4A05] py-8">
       <Container>
         <div className="mx-auto max-w-3xl text-center text-[#F5E6C8]">
           <h2 className="mb-10 font-serif text-3xl tracking-wide">
@@ -108,16 +108,13 @@ export default function JoinUs() {
             </div>
 
             {/* Submit */}
-            <div className="pt-6 text-center">
+            <div className="text-center">
               <button
                 type="submit"
                 className="rounded-md bg-[#F5E6C8] px-10 py-3 font-serif tracking-wide text-[#8B4A05] shadow-md transition hover:bg-[#ecd9b5]"
               >
                 {loading ? "Please Wait..." : "Submit"}
               </button>
-            </div>
-            <div>
-
             </div>
           </form>
         </div>

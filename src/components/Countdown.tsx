@@ -45,17 +45,17 @@ export default function Countdown({
 
   const Item = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
-      <span className="text-6xl md:text-7xl font-light tracking-wider">
+      <span className="text-2xl md:text-7xl font-light tracking-wider">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="mt-3 text-sm md:text-base tracking-[0.25em] text-[#f5e6b8]">
+      <span className="mt-3 text-xs md:text-base tracking-[0.25em] text-[#f5e6b8]">
         {label}
       </span>
     </div>
   );
 
   const Separator = () => (
-    <span className="text-5xl md:text-6xl font-light px-4 -mt-6">:</span>
+    <span className="text-5xl md:text-6xl font-light px-2 md:px-4 -mt-6">:</span>
   );
 
   return (
